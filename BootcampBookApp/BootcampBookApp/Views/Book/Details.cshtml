@@ -1,0 +1,67 @@
+﻿@model BootcampBookApp.ViewModel.ListViewModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@if (Model.authors != null)
+{
+    <h1>@Model.book.Title -  @Model.authors.FullName;  </h1>
+}
+    
+
+<div class="modal-body row">
+    <hr />
+    <div class="col-md-6">
+        <img src="/img/@Model.book.ImageUrl" alt="@Model.book.Title" class="img-fluid" />
+    </div>
+    <dl class="col-md-6" ">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Title)
+        </dd>
+        <dt class="col-sm-6">
+            Author Name
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.authors.FullName)
+        </dd>
+        @if (Model.genres != null)
+        {
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.genres.GenreTitle)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.genres.GenreTitle)
+            </dd>
+        }
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.PageCount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.PageCount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.PublishedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.PublishedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.book.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.book.Price) TL
+        </dd>
+    </dl>
+
+</div>
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.book.BookId">Edit</a>
+    <a asp-action="List">Back to List</a>
+</div>
+

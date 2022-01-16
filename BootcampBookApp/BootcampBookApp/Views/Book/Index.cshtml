@@ -1,0 +1,72 @@
+﻿@model BootcampBookApp.ViewModel.HomeViewModel
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div>
+
+    <div class="modal-body row">
+        <div class="col-md-3">
+            <div class="list-group">
+                @foreach (var genre in Model.genres)
+                {
+                    <a asp-action="Index" asp-route-id=@genre.GenreId class="list-group-item list-group-item-action">@genre.GenreTitle</a>
+                }
+            </div>
+        </div>
+        <div class="col-md-9">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.books[0].Title)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.books[0].PageCount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.books[0].PublishedDate)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.books[0].Price)
+                        </th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+
+
+                    @foreach (var item in Model.books)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Title)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PageCount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PublishedDate)
+                            </td>
+
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)
+                            </td>
+                            <td>
+                                <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |
+                                <a asp-action="Details" asp-route-id="@item.BookId">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.BookId">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

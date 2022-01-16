@@ -1,0 +1,69 @@
+﻿@model BootcampBookApp.ViewModel.CreateViewModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create a Book</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-3">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for=@Model.book.Title class="control-label"></label>
+                <input asp-for=@Model.book.Title class="form-control" />
+                <span asp-validation-for=@Model.book.Title class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.author.FullName class="control-label"></label>
+                <input asp-for=@Model.author.FullName class="form-control" />
+                <span asp-validation-for=@Model.author.FullName class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.book.PageCount class="control-label"></label>
+                <input asp-for=@Model.book.PageCount class="form-control" />
+                <span asp-validation-for=@Model.book.PageCount class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.book.PublishedDate class="control-label"></label>
+                <input asp-for=@Model.book.PublishedDate class="form-control" />
+                <span asp-validation-for=@Model.book.PublishedDate class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.book.ImageUrl class="control-label"></label>
+                <input asp-for=@Model.book.ImageUrl class="form-control" />
+                <span asp-validation-for=@Model.book.ImageUrl class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for=@Model.book.Price class="control-label"></label>
+                <input asp-for=@Model.book.Price class="form-control" />
+                <span asp-validation-for=@Model.book.Price class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Genre</label>
+                <select asp-for=@Model.genre1.GenreTitle class="custom-select" asp-items=@Model.genres>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Add Second Genre</label>
+                <select asp-for=@Model.genre2.GenreTitle class="custom-select" asp-items=@Model.genres>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
