@@ -1,0 +1,24 @@
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+      <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler"> 
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggler">
+              <a href="/" class="navbar-brand">BootCamp Movie App</a>
+              <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                      <a href="/movies/list" class="nav-link">Filmler</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="/movies/create" class="nav-link">Film Oluştur</a>
+                  </li>
+              </ul>
+
+              <form action="/movies/list" method="get" class="form-inline">
+                  <input type="text" name="q" placeholder="Film Ara" class="form-control mr-2" />
+                  <button type="submit" class="btn btn-outline-light mr-0">Ara</button>
+              </form>
+
+          </div>
+      </div>
+</nav>
